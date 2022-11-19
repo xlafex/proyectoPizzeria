@@ -1,16 +1,19 @@
 <?php
 
-    $serverName = "localhost";
-    $connectionInfo = array("Database"=>"TECNOLOGICO","UID"=>"admin1","PWD"=>"test123","CharacterSet"=>"UTF-8");
+    
+        $serverName = "localhost\SQLEXPRESS1";
 
-    $con = sqlsrv_connect($serverName, $connectionInfo);
+        $connectionInfo = array("Database"=>"PITZERIA", "CharacterSet"=>"UTF-8");
 
-    if($con){
-        echo "conexion exitosa";
+        //$con = sqlsrv_connect($serverName, $connectionInfo);
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-    }else{
-        echo "fallo en conexion";
-    }
-
+        if(!$conn){
+            echo "fallo en conexion";
+            
+        }else{
+            echo "conexion exitosa";
+        }
+    
 
 ?>

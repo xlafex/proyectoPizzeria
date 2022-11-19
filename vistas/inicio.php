@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['usuario'])) {
-
-?>
-
 
   <!DOCTYPE html>
   <html>
@@ -19,7 +13,7 @@ if (isset($_SESSION['usuario'])) {
   <body>
   <body style="background: url(../archivos/wallpaper1.jpg)">
     <center>
-      <h1>Bienvenidos a Mercado Libre #1 en ventas en México</h1>
+      <h1>Bienvenidos a Pitzeria</h1>
     </center>
     <section class="awSlider">
       <div class="carousel slide" data-ride="carousel">
@@ -68,8 +62,3 @@ if (isset($_SESSION['usuario'])) {
   </body>
 
   </html>
-<?php
-} else {
-  header("location:../index.php");
-}
-?>
