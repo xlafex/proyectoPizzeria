@@ -14,7 +14,7 @@
     <div class="col-md-8 col-md-offset-2">
         <h1>Clientes</h1>
 
-        <form method="POST" action="index.php">
+        <form method="POST" action="clientes.php">
             <div class="form-group">
                 <label for="">Nombre:</label>
                 <input type="text" name="nombre" class="form-control" placeholder="Escriba su nombre"><br />
@@ -47,8 +47,6 @@
             $direcc = $_POST['direccion'];
             $telef = $_POST['telefono'];
 
-            //change (id_cliente), it needs to be auto incremental in the DB so we can delete the parameter
-            // and make it increment automatically.
             $insertar = "INSERT INTO dbo.CLIENTES(Nombre,Apellido,Direccion,Telefono)VALUES('$nombr', '$apell' , '$direcc' , '$telef')";
             
             $ejecutar = sqlsrv_query($conn, $insertar);
