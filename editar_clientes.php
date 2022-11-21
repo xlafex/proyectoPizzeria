@@ -37,14 +37,14 @@
                 <input type="text" name="telefono" class="form-control" value="<?php echo $Telefono; ?>"><br />
             </div>
             <div class="form-group">
-                <input type="submit" name="actualizar" class="btn btn-warning" value="Actualizar Datos."><br />
+                <input type="submit" name="actualizar_cliente" class="btn btn-warning" value="Actualizar Datos."><br />
             </div>
         </form>
 
 </div>
 
 <?php
-    if(isset($_POST['actualizar'])){
+    if(isset($_POST['actualizar_cliente'])){
         $actualizar_nombre = $_POST['nombre'];
         $actualizar_apellido = $_POST['apellido'];
         $actualizar_direccion = $_POST['direccion'];

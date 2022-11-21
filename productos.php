@@ -16,15 +16,15 @@
 
         <form method="POST" action="index.php">
             <div class="form-group">
-                <label for="">Nombre:</label>
+                <label for="">Nombre del Producto:</label>
                 <input type="text" name="nombre" class="form-control" placeholder="Escriba su nombre"><br />
             </div>
             <div class="form-group">
-                <label for="">Apellido:</label>
+                <label for="">Precio:</label>
                 <input type="text" name="apellido" class="form-control" placeholder="Escriba su apellido"><br />
             </div>
             <div class="form-group">
-                <label for="">Direccion:</label>
+                <label for="">Descripción:</label>
                 <input type="text" name="direccion" class="form-control" placeholder="Escriba su direccion"><br />
             </div>
             <div class="form-group">
