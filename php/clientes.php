@@ -120,7 +120,7 @@
     
     <?php
         if(isset($_GET['editar'])){
-            include("../editar_clientes.php");
+            include("editar/editar_clientes.php");
         }
 
     ?>

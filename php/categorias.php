@@ -112,7 +112,7 @@
     
     <?php
         if(isset($_GET['editar'])){
-            include("editar_categorias.php");
+            include("editar/editar_categorias.php");
         }
 
     ?>

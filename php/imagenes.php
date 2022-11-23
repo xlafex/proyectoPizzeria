@@ -223,7 +223,7 @@
     
     <?php
         if(isset($_GET['editar'])){
-            include("editar_imagenes.php");
+            include("editar/editar_imagenes.php");
         }
 
     ?>
