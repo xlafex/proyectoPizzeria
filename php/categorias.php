@@ -8,9 +8,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
-    <link rel="stylesheet" href="librerias/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
 </head>
 <body>
+    <header>
+        <nav class="menu">
+            <div class="logo" id="logo">
+                <h1 id="Pitzeria">Pitzeria</h1>
+            </div>
+            <div class="menudata">
+                <p><a href="clientes.php">Clientes</a></p>
+                <p><a href="categorias.php">Categorias</a></p>
+                <p><a href="imagenes.php">Imagenes</a></p>
+                <p><a href="productos.php">Producto</a></p>
+                <p><a href="">Empleados</a></p>
+                <p><a href="">Ventas</a></p>
+            </div>
+        </nav>
+    </header>
+    </header>
     <div class="col-md-8 col-md-offset-2">
         <h1>Categorias</h1>
 

@@ -12,7 +12,7 @@
             echo "fallo en conexion";
             
         }else{
-            echo "conexion exitosa";
+            /* echo "conexion exitosa"; */
         }
     
 

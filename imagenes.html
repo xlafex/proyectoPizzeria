@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<script src="test.js"></script>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes</title>
+    <link rel="stylesheet" href="librerias/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Imagenes</h1>
+
+        <form method="POST" action="imagenes.php" enctype="multipart/form-data" >
+            <div class="form-group">
+                <label for="">Nombre:</label>
+                <input type="text" name="nombre_img" id="nombre_imagen" class="form-control" placeholder="Escriba el nombre de la imagen"><br />
+            </div>
+            <div class="form-group">
+<!--                 <label for="">Ruta:</label>
+                <input type="text" name="ruta_img" class="form-control" placeholder="Escriba el nombre de categoria"><br /> -->
+                <label for="">Ruta:</label>
+                <input type="file" id="ruta_imagen" name="ruta_img" accept=".jpg, .jpeg, .png ">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" name="insert_img" class="btn btn-warning" value="Insertar imagen."><br />
+            </div>
+        </form>
+        <a href="verImagenes.php"> Ver Imagenes</a>
+    </div>
+<br /><br/> <br/>
+
+    
+
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <td>Id_Imagen</td>
+                <td>Nombre de Imagen</td>
+                <td>Vista Previa</td>
+                <td>Ruta</td>
+                <td>Acción</td>
+                <td>Acción</td>
+            </tr>
+
+            
+            <tr align="center">
+                <td></td>
+                <td></td>
+                <td><img src="imagenes/" width = 200 title=""> </td>
+                <td>Ruta</td>
+                <td><a href="imagenes.php?editar=<?php echo $id;?>">Editar</a></td>
+                <td><a href="imagenes.php?borrar=<?php echo $id;?>">Borrar</a></td>
+            </tr>
+
+      
+            
+        </table>
+    </div>
+     
+
+</body>
+</html>
+
+
+
+
+
+

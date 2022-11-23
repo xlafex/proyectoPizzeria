@@ -64,3 +64,37 @@
 
 
 ?>
+
+
+
+
+
+<!-- CODIGO -->
+
+<?php
+                $consulta = "SELECT * FROM IMAGENES ORDER BY Id_Imagen DESC";
+                
+                
+                $ejecutar = sqlsrv_query($conn, $consulta);
+                
+                $i = 0;
+                
+                while($fila = sqlsrv_fetch_array($ejecutar)){
+                    $id = $fila['Id_Imagen'];
+                    $NombreImg = $fila['Nombre'];
+                    $Ruta = $fila['Ruta'];
+                    
+                    $i++;
+
+?>
+
+<?php } ?>
+
+<tr align="center">
+                <td><?php echo $id?></td>
+                <td><?php echo $fila['Nombre']?></td>
+                <td><img src="imagenes/<?php echo $fila['ruta_img']; ?>" width = 200 title="<?php echo $NombreImg; ?>"> </td>
+                <td><?php echo $Ruta?></td>
+                <td><a href="imagenes.php?editar=<?php echo $id;?>">Editar</a></td>
+                <td><a href="imagenes.php?borrar=<?php echo $id;?>">Borrar</a></td>
+            </tr>
