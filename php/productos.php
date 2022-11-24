@@ -125,13 +125,13 @@ use Sabberworm\CSS\Value\Value;
                 <td>Precio</td>
                 <td>Descripcion</td>
                 <td>Categoria</td>
-                <td>Imagen</td>
+                <td>Activa</td>
                 <td>Acción</td>
                 <td>Acción</td>
             </tr>
 
             <?php
-                $consulta = "SELECT * from PRODUCTOS";
+                $consulta = "SELECT * from ProductoCompleto";
 
                 $ejecutar = sqlsrv_query($conn, $consulta);
 
@@ -142,17 +142,8 @@ use Sabberworm\CSS\Value\Value;
                     $NombreProducto = $fila['Nombre_Producto'];
                     $PrecioProducto = $fila['Precio'];
                     $DescProducto = $fila['Descripcion'];
-                    $IdCategoria = $fila['Id_Categoria'];
-                    $IdImagen = $fila['Id_Imagen'];
-
-                    $ConsultaCateg = "SELECT Nombre_Categoria from CATEGORIAS where Id_Categoria = $IdCategoria";
-                    $ejecutarcateg = sqlsrv_query($conn, $ConsultaCateg);
-                    $nombreCateg = sqlsrv_fetch_array($ejecutarcateg);
-
-
-                    $ConsultaImg = "SELECT Nombre from IMAGENES where Id_Imagen = $IdImagen";
-                    $ejecutarimagen = sqlsrv_query($conn, $ConsultaImg);
-                    $nombreImagen = sqlsrv_fetch_array($ejecutarimagen);
+                    $NomCateg = $fila['Nombre_Categoria'];
+                    $Active = $fila['Activa'];
 
 
                     $i++;
@@ -165,8 +156,8 @@ use Sabberworm\CSS\Value\Value;
                 <td><?php echo $NombreProducto?></td>
                 <td><?php echo $PrecioProducto?></td>
                 <td><?php echo $DescProducto?></td>
-                <td><?php echo $nombreCateg['Nombre_Categoria']?></td>
-                <td><?php echo $nombreImagen['Nombre']?></td>
+                <td><?php echo $NomCateg?></td>
+                <td><?php echo $Active?></td>
                 
                 <td><a href="productos.php?editar=<?php echo $id;?>">Editar</a></td>
                 <td><a href="productos.php?borrar=<?php echo $id;?>">Borrar</a></td>
