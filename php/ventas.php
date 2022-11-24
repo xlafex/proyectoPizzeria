@@ -8,6 +8,7 @@ use Sabberworm\CSS\Value\Value;
     $sql_prod = "SELECT * FROM PRODUCTOS";
     $all_products = sqlsrv_query($conn,$sql_prod);
 
+    $idVentaActual = 12;
 
 ?>
 <html lang="en">
@@ -39,6 +40,14 @@ use Sabberworm\CSS\Value\Value;
         <h1>Ventas</h1>
         <div class="historialVentas">
             <p class="btn btn-warning"><a href="ventasExtra/historialVentas.php">Ver Historial de Ventas</a></p>
+        </div>
+        <br/>
+        <div class="ventasDelDia">
+            <p class="btn btn-warning"><a href="ventasExtra/ventasDia.php">Ver Ventas Diarias</a></p>
+        </div>
+        <br/>
+        <div class="ventasDetalladas">
+            <p class="btn btn-warning"><a href="ventasExtra/historialVentaDetallada.php">Ver Ventas Detalladas</a></p>
         </div>
             <form method="POST" action="ventas.php">
             <div class="form-group">
@@ -115,6 +124,7 @@ use Sabberworm\CSS\Value\Value;
 
         /* boton generar venta */
         if(isset($_POST['insert_venta'])){
+           
             $idCliente = $_POST['client'];
             $precioTotal = 0;
             $todayDate = date("Y/m/d");
@@ -122,27 +132,61 @@ use Sabberworm\CSS\Value\Value;
             $sql_orden_temp = "SELECT * FROM ORDEN_TEMPORAL";
             $all_ordentemp = sqlsrv_query($conn,$sql_orden_temp);
 
+            $sql_idProd = "SELECT * FROM PRODUCTOS";
+            $all_products = sqlsrv_query($conn,$sql_idProd);
+            
             $i = 0;
-
+            
             while($filaOrden = sqlsrv_fetch_array($all_ordentemp)){
                 $cantidadTemp = $filaOrden['Cantidad'];
                 $PrecioTemp = $filaOrden['Precio'];     
-                    
+                /* $idProductoTemp = $filaOrden['Id_Producto'];   */
                 $precioTotal += $cantidadTemp*$PrecioTemp;
-
+                
                 $i++;
+                
             }      
             
             $insertVenta = "INSERT INTO dbo.VENTAS(Id_Cliente,Precio_Total,Fecha_Venta)VALUES('$idCliente', '$precioTotal' , '$todayDate')";
-
-            /* echo "<script>alert('$id_cat', '$nombr' , '$price' , '$desc','$id_img)</script>";
-            exit; */
+            
             $ejecutar = sqlsrv_query($conn, $insertVenta);
+            
+            
 
+            /*  */
+            $sql_getOrder = "SELECT * FROM ORDEN_TEMPORAL";
+            $all_getOrdersTemps = sqlsrv_query($conn,$sql_getOrder);
+
+            $checkLastVenta = "SELECT MAX(Id_Venta) as LastID from VENTAS;";
+            
+            $ejecutarLastVenta = sqlsrv_query($conn, $checkLastVenta);
+
+            $LastIdVenta = sqlsrv_fetch_array($ejecutarLastVenta);
+            /* $IdVentaUltimo = $filaIdVenta['LastID']; */
+            $lastId = $LastIdVenta['LastID'];
+
+            $y=0;
+            while($filaOrdenTmp = sqlsrv_fetch_array($all_getOrdersTemps)){
+                $cantidadTemp = $filaOrdenTmp['Cantidad'];
+                $PrecioTemp = $filaOrdenTmp['Precio'];     
+                $idProductoTemp = $filaOrdenTmp['Id_Producto'];  
+                
+
+                $insertVentaDetallada = "INSERT INTO dbo.VENTAS_DETALLADAS(Id_Venta,Id_Producto,Cantidad,Precio)VALUES('$lastId','$idProductoTemp', '$cantidadTemp' , '$PrecioTemp')";
+            
+                $ejecutarTemp = sqlsrv_query($conn, $insertVentaDetallada);
+                if($ejecutarTemp){
+                    echo "<script>alert('Venta detail added.')</script>";
+                }
+                $y++;
+            }
+            
+            /* Al realizarse todos los procesos, se suma el idVentaActual para que el siguiente CLICK
+            sea otra venta */
+            
             if($ejecutar){
                 echo "<script>alert('Venta realizada con exito.')</script>";
             }
-
         }
 
     ?>
