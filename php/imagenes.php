@@ -73,7 +73,7 @@
                 <p><a href="imagenes.php">Imagenes</a></p>
                 <p><a href="productos.php">Producto</a></p>
                 <p><a href="">Empleados</a></p>
-                <p><a href="">Ventas</a></p>
+                <p><a href="ventas.php">Ventas</a></p>
             </div>
         </nav>
     </header>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php
+use Sabberworm\CSS\Value\Value;
     include("conexion.php");
+    $sql = "SELECT * FROM CATEGORIAS";
+    $all_categories = sqlsrv_query($conn,$sql);
+
+    $sql_img = "SELECT * FROM IMAGENES";
+    $all_images = sqlsrv_query($conn,$sql_img);
 ?>
 <html lang="en">
 <head>
@@ -23,32 +29,66 @@
                 <p><a href="imagenes.php">Imagenes</a></p>
                 <p><a href="productos.php">Producto</a></p>
                 <p><a href="">Empleados</a></p>
-                <p><a href="">Ventas</a></p>
+                <p><a href="ventas.php">Ventas</a></p>
             </div>
         </nav>
     </header>
     <div class="col-md-8 col-md-offset-2">
         <h1>Productos</h1>
 
-        <form method="POST" action="index.php">
+        <form method="POST" action="productos.php">
             <div class="form-group">
                 <label for="">Nombre del Producto:</label>
-                <input type="text" name="nombre" class="form-control" placeholder="Escriba su nombre"><br />
+                <input type="text" name="nombre_product" class="form-control" placeholder="Escriba el nombre del producto."><br />
             </div>
             <div class="form-group">
                 <label for="">Precio:</label>
-                <input type="text" name="apellido" class="form-control" placeholder="Escriba su apellido"><br />
+                <input type="text" name="precio_product" class="form-control" placeholder="Escriba el Precio del producto."><br />
             </div>
             <div class="form-group">
                 <label for="">Descripción:</label>
-                <input type="text" name="direccion" class="form-control" placeholder="Escriba su direccion"><br />
+                <input type="text" name="descripcion_product" class="form-control" placeholder="Escriba la Descripción del producto."><br />
             </div>
             <div class="form-group">
-                <label for="">Telefono:</label>
-                <input type="text" name="telefono" class="form-control" placeholder="Escriba su telefono"><br />
+                <label for="">Categoria:</label>
+                <select name="categ" id="categ" class="form-control">
+                    <!-- <option value="Y">Si</option>
+                    <option value="N">No</option> -->
+                    <?php
+
+                        while ($category = sqlsrv_fetch_array(
+                                $all_categories)):;
+                    ?>
+                        <option value="<?php echo $category["Id_Categoria"];?>">
+                            <?php echo $category["Nombre_Categoria"];?>
+                        </option>
+                    <?php
+                        endwhile;
+                        // While loop must be terminated
+                    ?>
+                </select>
             </div>
             <div class="form-group">
-                <input type="submit" name="insert" class="btn btn-warning" value="Insertar cliente."><br />
+                <label for="">Imagen:</label>
+                <select name="imagen_product" id="img_product" class="form-control">
+                    <!-- <option value="Y">Si</option>
+                    <option value="N">No</option> -->
+                    <?php
+
+                        while ($image = sqlsrv_fetch_array(
+                                $all_images)):;
+                    ?>
+                        <option value="<?php echo $image["Id_Imagen"];?>">
+                            <?php echo $image["Nombre"];?><!-- Campo Nombre de Tabla Imagen -->
+                        </option>
+                    <?php
+                        endwhile;
+                        // While loop must be terminated
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="insert_product" class="btn btn-warning" value="Insertar Producto."><br />
             </div>
         </form>
 
@@ -57,20 +97,21 @@
 
     <?php
 
-        if(isset($_POST['insert'])){
-            $nombr = $_POST['nombre'];
-            $apell = $_POST['apellido'];
-            $direcc = $_POST['direccion'];
-            $telef = $_POST['telefono'];
+        if(isset($_POST['insert_product'])){
+            $nombr = $_POST['nombre_product'];
+            $price = $_POST['precio_product'];
+            $desc = $_POST['descripcion_product'];
+            $id_cat = $_POST['categ'];
+            $id_img = $_POST['imagen_product'];
 
-            //change (id_cliente), it needs to be auto incremental in the DB so we can delete the parameter
-            // and make it increment automatically.
-            $insertar = "INSERT INTO dbo.CLIENTES(Nombre,Apellido,Direccion,Telefono)VALUES('$nombr', '$apell' , '$direcc' , '$telef')";
+            $insertar_producto = "INSERT INTO dbo.PRODUCTOS(Id_Categoria,Nombre_Producto,Precio,Descripcion,Id_Imagen)VALUES('$id_cat', '$nombr' , '$price' , '$desc','$id_img')";
             
-            $ejecutar = sqlsrv_query($conn, $insertar);
+            /* echo "<script>alert('$id_cat', '$nombr' , '$price' , '$desc','$id_img)</script>";
+            exit; */
+            $ejecutar = sqlsrv_query($conn, $insertar_producto);
 
             if($ejecutar){
-                echo "<h3>Insertado correctamente</h3>";
+                echo "<script>alert('Producto agregado correctamente.')</script>";
             }
 
         }
@@ -80,27 +121,39 @@
         <table class="table table-bordered table-responsive">
             <tr>
                 <td>ID</td>
-                <td>Nombre</td>
-                <td>Apellido</td>
-                <td>Direccion</td>
-                <td>Telefono</td>
+                <td>Nombre del Producto</td>
+                <td>Precio</td>
+                <td>Descripcion</td>
+                <td>Categoria</td>
+                <td>Imagen</td>
                 <td>Acción</td>
                 <td>Acción</td>
             </tr>
 
             <?php
-                $consulta = "SELECT * from CLIENTES";
+                $consulta = "SELECT * from PRODUCTOS";
 
                 $ejecutar = sqlsrv_query($conn, $consulta);
 
                 $i = 0;
 
                 while($fila = sqlsrv_fetch_array($ejecutar)){
-                    $id = $fila['Id_Cliente'];
-                    $Nombre = $fila['Nombre'];
-                    $Apellido = $fila['Apellido'];
-                    $Direccion = $fila['Direccion'];
-                    $Telefono = $fila['Telefono'];
+                    $id = $fila['Id_Producto'];
+                    $NombreProducto = $fila['Nombre_Producto'];
+                    $PrecioProducto = $fila['Precio'];
+                    $DescProducto = $fila['Descripcion'];
+                    $IdCategoria = $fila['Id_Categoria'];
+                    $IdImagen = $fila['Id_Imagen'];
+
+                    $ConsultaCateg = "SELECT Nombre_Categoria from CATEGORIAS where Id_Categoria = $IdCategoria";
+                    $ejecutarcateg = sqlsrv_query($conn, $ConsultaCateg);
+                    $nombreCateg = sqlsrv_fetch_array($ejecutarcateg);
+
+
+                    $ConsultaImg = "SELECT Nombre from IMAGENES where Id_Imagen = $IdImagen";
+                    $ejecutarimagen = sqlsrv_query($conn, $ConsultaImg);
+                    $nombreImagen = sqlsrv_fetch_array($ejecutarimagen);
+
 
                     $i++;
                 
@@ -109,12 +162,14 @@
 
             <tr align="center">
                 <td><?php echo $id?></td>
-                <td><?php echo $Nombre?></td>
-                <td><?php echo $Apellido?></td>
-                <td><?php echo $Direccion?></td>
-                <td><?php echo $Telefono?></td>
-                <td><a href="clientes.php?editar=<?php echo $id;?>">Editar</a></td>
-                <td><a href="clientes.php?borrar=<?php echo $id;?>">Borrar</a></td>
+                <td><?php echo $NombreProducto?></td>
+                <td><?php echo $PrecioProducto?></td>
+                <td><?php echo $DescProducto?></td>
+                <td><?php echo $nombreCateg['Nombre_Categoria']?></td>
+                <td><?php echo $nombreImagen['Nombre']?></td>
+                
+                <td><a href="productos.php?editar=<?php echo $id;?>">Editar</a></td>
+                <td><a href="productos.php?borrar=<?php echo $id;?>">Borrar</a></td>
             </tr>
 
             <?php } ?>
@@ -133,13 +188,13 @@
         if(isset($_GET['borrar'])){
             $borrar_id = $_GET['borrar'];
 
-            $borrar = "DELETE from CLIENTES where Id_Cliente='$borrar_id'";
+            $borrar = "DELETE from PRODUCTOS where Id_Producto='$borrar_id'";
 
             $ejecutar = sqlsrv_query($conn, $borrar);
 
             if($ejecutar){
-                echo "<script>alert('Cliente eliminado.')</script>";
-                echo "<script>window.open('clientes.php','_self')</script>";
+                echo "<script>alert('Producto eliminado.')</script>";
+                echo "<script>window.open('productos.php','_self')</script>";
             }
     
         }
