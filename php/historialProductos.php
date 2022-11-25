@@ -58,7 +58,7 @@
                     
 
                     $DateMod = $fechaMod->format('Y-m-d');
-                    $HourMod = $fechaMod->format('m:s');
+                    $HourMod = $horaMod->format('h:i:s a');
                     
                     $i++;
             ?>
