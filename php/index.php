@@ -48,7 +48,7 @@ use Sabberworm\CSS\Value\Value;
         <div class="ventasDetalladas">
             <p class="btn btn-warning"><a href="ventasExtra/historialVentaDetallada.php">Ver Ventas Detalladas</a></p>
         </div>
-            <form method="POST" action="ventas.php">
+            <form method="POST" action="index.php">
             <div class="form-group">
                 <label for="">Cliente:</label>
                 <select name="client" id="client" class="form-control">
@@ -234,7 +234,7 @@ use Sabberworm\CSS\Value\Value;
                 <td><?php echo $nombreProducto['Nombre_Producto']?></td>
                 <td><?php echo $cant?></td>
                 <td><?php echo $PrecioProd?></td>                        
-                <td><a href="ventas.php?borrar=<?php echo $idOrden;?>">Borrar</a></td>
+                <td><a href="index.php?borrar=<?php echo $idOrden;?>">Borrar</a></td>
             </tr>
 
             <?php } ?>
@@ -252,7 +252,7 @@ use Sabberworm\CSS\Value\Value;
 
             if($ejecutar){
                 echo "<script>alert('Producto eliminado de la orden.')</script>";
-                echo "<script>window.open('ventas.php','_self')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
             }
     
         }

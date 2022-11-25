@@ -53,7 +53,7 @@
 
         if($ejecutar){
             echo "<script>alert('Datos actualizados.')</script>";
-            echo "<script>window.open('clientes.php','_self')</script>";
+            //echo "<script>window.open('../categorias.php')</script>";
         }
 
     }
