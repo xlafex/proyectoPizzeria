@@ -26,10 +26,9 @@ use Sabberworm\CSS\Value\Value;
             <div class="menudata">
                 <p><a href="clientes.php">Clientes</a></p>
                 <p><a href="categorias.php">Categorias</a></p>
-                <p><a href="imagenes.php">Imagenes</a></p>
+                <p><a href="historialProductos.php">Historial Productos</a></p>
                 <p><a href="productos.php">Producto</a></p>
-                <p><a href="">Empleados</a></p>
-                <p><a href="ventas.php">Ventas</a></p>
+                <p class="btn btn-warning"><a href="index.php">Ventas</a></p>
             </div>
         </nav>
     </header>
@@ -68,25 +67,7 @@ use Sabberworm\CSS\Value\Value;
                     ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="">Imagen:</label>
-                <select name="imagen_product" id="img_product" class="form-control">
-                    <!-- <option value="Y">Si</option>
-                    <option value="N">No</option> -->
-                    <?php
-
-                        while ($image = sqlsrv_fetch_array(
-                                $all_images)):;
-                    ?>
-                        <option value="<?php echo $image["Id_Imagen"];?>">
-                            <?php echo $image["Nombre"];?><!-- Campo Nombre de Tabla Imagen -->
-                        </option>
-                    <?php
-                        endwhile;
-                        // While loop must be terminated
-                    ?>
-                </select>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" name="insert_product" class="btn btn-warning" value="Insertar Producto."><br />
             </div>
@@ -102,9 +83,9 @@ use Sabberworm\CSS\Value\Value;
             $price = $_POST['precio_product'];
             $desc = $_POST['descripcion_product'];
             $id_cat = $_POST['categ'];
-            $id_img = $_POST['imagen_product'];
+            
 
-            $insertar_producto = "INSERT INTO dbo.PRODUCTOS(Id_Categoria,Nombre_Producto,Precio,Descripcion,Id_Imagen)VALUES('$id_cat', '$nombr' , '$price' , '$desc','$id_img')";
+            $insertar_producto = "INSERT INTO dbo.PRODUCTOS(Id_Categoria,Nombre_Producto,Precio,Descripcion)VALUES('$id_cat', '$nombr' , '$price' , '$desc')";
             
             /* echo "<script>alert('$id_cat', '$nombr' , '$price' , '$desc','$id_img)</script>";
             exit; */
@@ -131,7 +112,7 @@ use Sabberworm\CSS\Value\Value;
             </tr>
 
             <?php
-                $consulta = "SELECT * from ProductoCompleto";
+                $consulta = "SELECT * from ProductoCompleto1";
 
                 $ejecutar = sqlsrv_query($conn, $consulta);
 

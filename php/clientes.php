@@ -20,10 +20,9 @@
             <div class="menudata">
                 <p><a href="clientes.php">Clientes</a></p>
                 <p><a href="categorias.php">Categorias</a></p>
-                <p><a href="imagenes.php">Imagenes</a></p>
+                <p><a href="historialProductos.php">Historial Productos</a></p>
                 <p><a href="productos.php">Producto</a></p>
-                <p><a href="">Empleados</a></p>
-                <p><a href="ventas.php">Ventas</a></p>
+                <p class="btn btn-warning"><a href="index.php">Ventas</a></p>
             </div>
         </nav>
     </header>

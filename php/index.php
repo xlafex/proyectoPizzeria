@@ -29,10 +29,9 @@ use Sabberworm\CSS\Value\Value;
             <div class="menudata">
                 <p><a href="clientes.php">Clientes</a></p>
                 <p><a href="categorias.php">Categorias</a></p>
-                <p><a href="imagenes.php">Imagenes</a></p>
+                <p><a href="historialProductos.php">Historial Productos</a></p>
                 <p><a href="productos.php">Producto</a></p>
-                <p><a href="">Empleados</a></p>
-                <p><a href="">Ventas</a></p>
+                <p class="btn btn-warning"><a href="">Ventas</a></p>
             </div>
         </nav>
     </header>
@@ -66,7 +65,9 @@ use Sabberworm\CSS\Value\Value;
                     ?>
                 </select>
             </div>    
-
+            <div class="form-group">
+                <input type="submit" name="insert_venta" class="btn btn-warning" value="Generar Venta."><br />
+            </div>
             <div class="form-group">
                 <label for="">Producto:</label>
                 <select name="product" id="product" class="form-control">
@@ -89,8 +90,9 @@ use Sabberworm\CSS\Value\Value;
             <div class="form-group">
                 <input type="submit" name="insert_product_to_order" class="btn btn-warning" value="Insertar Producto a la Orden."><br />
             </div>
+            
             <div class="form-group">
-                <input type="submit" name="insert_venta" class="btn btn-warning" value="Generar Venta."><br />
+                <label for="">Carrito:</label>
             </div>
         </form>
 
@@ -176,7 +178,7 @@ use Sabberworm\CSS\Value\Value;
             
                 $ejecutarTemp = sqlsrv_query($conn, $insertVentaDetallada);
                 if($ejecutarTemp){
-                    echo "<script>alert('Venta detail added.')</script>";
+                    /* echo "<script>alert('Venta detail added.')</script>"; */
                 }
                 $y++;
             }
@@ -184,9 +186,14 @@ use Sabberworm\CSS\Value\Value;
             /* Al realizarse todos los procesos, se suma el idVentaActual para que el siguiente CLICK
             sea otra venta */
             
+            $sql_deleteOrder = "DELETE FROM ORDEN_TEMPORAL";
+            $deleteCart = sqlsrv_query($conn,$sql_deleteOrder);
+
             if($ejecutar){
                 echo "<script>alert('Venta realizada con exito.')</script>";
             }
+
+            
         }
 
     ?>
@@ -251,12 +258,7 @@ use Sabberworm\CSS\Value\Value;
         }
 ?>   
 
-<?php
-        if(isset($_GET['editar'])){
-            include("editar/editar_clientes.php");
-        }
 
-?>
 
 </body>
 </html>
