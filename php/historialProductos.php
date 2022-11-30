@@ -58,7 +58,7 @@
             <th scope="col">Acción</th>
             <th scope="col">Fecha</th>
             <th scope="col">Hora</th>
-            <th scope="col">Acción</th>
+
             </tr>
             
         </thead>
@@ -101,7 +101,7 @@
             <td><?php echo $Accion?></td>
             <td><?php echo $DateMod?></td>
             <td><?php echo $HourMod?></td>
-            <td><a href="historialProductos.php?borrar=<?php echo $idHistorial;?>">Borrar</a></td>
+
            
             </tr>
 
