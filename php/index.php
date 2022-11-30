@@ -87,9 +87,13 @@ use Sabberworm\CSS\Value\Value;
         <div class="ventasDetalladas">
             <p style="font-size:18px;font-family: 'Rubik', sans-serif;" class="btn btn-warning"><a style="text-decoration: none;" href="ventasExtra/historialVentaDetallada.php">Ver Ventas Detalladas</a></p>
         </div>
+<<<<<<< HEAD
         
             <form method="POST" action="index.php">
                 <br>
+=======
+            <form method="POST" action="index.php">
+>>>>>>> 63bb59c452bd9ef49b11282ff7b55ace09fba6cc
             <div class="form-group">
                 <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Cliente:</label>
                 <select style="font-size:16px;font-family: 'Rubik', sans-serif;" name="client" id="client" class="form-control">
@@ -303,7 +307,11 @@ use Sabberworm\CSS\Value\Value;
                 <td><?php echo $cant?></td>
                 <td><?php echo $PrecioProd?></td>                        
                 <td><a href="index.php?borrar=<?php echo $idOrden;?>">Borrar</a></td>
+<<<<<<< HEAD
             </tr> -->
+=======
+            </tr>
+>>>>>>> 63bb59c452bd9ef49b11282ff7b55ace09fba6cc
 
             <?php } ?>
 

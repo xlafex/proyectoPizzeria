@@ -5,10 +5,10 @@
     $sql_img = "SELECT * FROM IMAGENES";
     $all_images = sqlsrv_query($conn,$sql_img);
 
-    $tempMainId = "";
+   
         if(isset($_GET['editar'])){
             $editar_id = $_GET['editar'];
-            $tempMainId = $editar_id;
+            
             $consulta = "SELECT * from PRODUCTOS where Id_Producto='$editar_id'";
 
             $ejecutar = sqlsrv_query($conn, $consulta);
@@ -76,13 +76,14 @@
 
 <?php
     if(isset($_POST['actualizar_producto'])){
+        $updateIdProd = $editar_id;
         $actualizar_nombreprod = $_POST['nombre_product_tmp'];
         $actualizar_precioprod = $_POST['precio_product_tmp'];
         $actualizar_descripcionprod = $_POST['descripcion_product_tmp'];
         $actualizar_categoriaprod = $_POST['categ_tmp'];
 
 
-        $updateProducto = "UPDATE PRODUCTOS SET Nombre_Producto='$actualizar_nombreprod', Precio='$actualizar_precioprod' , Descripcion='$actualizar_descripcionprod', Id_Categoria='$actualizar_categoriaprod'  where Id_Producto='$tempMainId'";
+        $updateProducto = "UPDATE PRODUCTOS SET Nombre_Producto='$actualizar_nombreprod', Precio='$actualizar_precioprod' , Descripcion='$actualizar_descripcionprod', Id_Categoria='$actualizar_categoriaprod'  where Id_Producto='$updateIdProd'";
 
         $ejecutar = sqlsrv_query($conn, $updateProducto);
 

@@ -2,7 +2,7 @@
 <?php
     include("../conexion.php");
     $diaHoy = date("Y/m/d");
-    $totalHoy = 0;
+    
 ?>
 <html lang="en">
 <head>
@@ -34,10 +34,17 @@
         <p><a href="../index.php">Regresar.</a></p>
     </div>
 <br /><br/> <br/>
+<<<<<<< HEAD
 <form action="ventasDia.php" method="POST">
     <div class="form-group">
         <input type="submit" name="verVentasDia" class="btn btn-warning" value="Ver Ventas Del Dia."><br />
      </div>
+=======
+    <form action="ventasDia.php" method="post">
+        <div class="form-group">
+            <input type="submit" name="verVentasDia" class="btn btn-warning" value="Ver Ventas Del Dia."><br />
+        </div>
+>>>>>>> 63bb59c452bd9ef49b11282ff7b55ace09fba6cc
     </form>
     <div class="col-md-8 col-md-offset-2">
         <table class="table table-bordered table-responsive">
@@ -48,6 +55,7 @@
             </tr>
 
             <?php
+<<<<<<< HEAD
             $totalHoy = 0;
             if(isset($_POST['verVentasDia'])){
                 // $diaHoy = date("Y/m/d");
@@ -66,18 +74,74 @@
             }  
             ?>
             <?php /* } */ ?>
+=======
+            
+            $totalHoy = 0;
+            
+            if(isset($_POST['verVentasDia'])){
+                
+                $sql = "EXECUTE GananciasDelDia4";
+                /* $stmt = sqlsrv_prepare($conn, $sql);
+                if (!sqlsrv_execute($stmt)) {
+                    echo "Your code is fail!";
+                    die;
+                } */
+                $gananciaQuery = sqlsrv_query($conn,$sql);
+                while($row = sqlsrv_fetch_array($gananciaQuery)){
+                    $totalHoy = $row['GananciaDiaria'];
+                }    
+                
+            }
+                    
+            ?>
+>>>>>>> 63bb59c452bd9ef49b11282ff7b55ace09fba6cc
 
             <tr align="center">
                 <td><?php echo $diaHoy?></td>
                 <td><?php echo $totalHoy?></td>
-
+                
             </tr>
 
+            <?php /* } */ ?>
 
         </table>
     </div>
     
+<<<<<<< HEAD
   
+=======
+<?php
+/* falta arreglar el boton y tambien falta ventas detalladas */
+        // if(isset($_POST['verVentasDia'])){
+        //     $diaHoy = date("Y/m/d");
+        //     //
+        //     /* $params = array(&$diaHoy); */
+        //         // EXEC the procedure, {call stp_Create_Item (@Item_ID = ?, @Item_Name = ?)} seems to fail with various errors in my experiments
+        //     //$sql = "EXEC VentasDelDia @Fecha = ?";
+            
+        //     $sql_callSP = "{call VentasDelDia( ?)}";  
+            
+        //     $params = array(   
+        //         array($diaHoy, SQLSRV_PARAM_IN)                
+        //       );  
+ 
+
+        //     $ejecutar = sqlsrv_query($conn, $sql_callSP, $params);
+        //     $i = 0;
+
+
+        //     while($fila = sqlsrv_fetch_array($ejecutar)){
+                
+
+        //         $i++;
+        //     }   
+        //     if($ejecutar){
+        //         echo "<script>alert('Ventas del dia de Hoy:</script>"+ $ventasTotalesDiario +"<script>')</script>";
+        //     }
+        // }
+
+        ?>   
+>>>>>>> 63bb59c452bd9ef49b11282ff7b55ace09fba6cc
 <?php
 
     if(isset($_GET['borrar'])){
