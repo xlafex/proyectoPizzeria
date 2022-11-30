@@ -21,23 +21,23 @@
 <div class="col-md-8 col-md-offset-2">
         <form method="POST" action="">
             <div class="form-group">
-                <label for="">Nombre:</label>
-                <input type="text" name="nombre" class="form-control" value="<?php echo $Nombre; ?>"><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Nombre:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="nombre" class="form-control" value="<?php echo $Nombre; ?>"><br />
             </div>
             <div class="form-group">
-                <label for="">Apellido:</label>
-                <input type="text" name="apellido" class="form-control" value="<?php echo $Apellido; ?>"><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Apellido:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="apellido" class="form-control" value="<?php echo $Apellido; ?>"><br />
             </div>
             <div class="form-group">
-                <label for="">Direccion:</label>
-                <input type="text" name="direccion" class="form-control" value="<?php echo $Direccion; ?>"><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Direccion:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="direccion" class="form-control" value="<?php echo $Direccion; ?>"><br />
             </div>
             <div class="form-group">
-                <label for="">Telefono:</label>
-                <input type="text" name="telefono" class="form-control" value="<?php echo $Telefono; ?>"><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Telefono:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="telefono" class="form-control" value="<?php echo $Telefono; ?>"><br />
             </div>
             <div class="form-group">
-                <input type="submit" name="actualizar_cliente" class="btn btn-warning" value="Actualizar Datos."><br />
+                <input style="font-size:18px;font-family: 'Rubik', sans-serif;" type="submit" name="actualizar_cliente" class="btn btn-warning" value="Actualizar Datos."><br />
             </div>
         </form>
 

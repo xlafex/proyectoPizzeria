@@ -14,9 +14,11 @@
 <body>
     <header>
         <nav class="menu">
-            <div class="logo" id="logo">
-                <h1 id="Pitzeria">Pitzeria</h1>
-            </div>
+        <div class="container">
+                
+                <img src="../../imagenes/logo2.png" alt="" width="150" height="75">
+                <ul class="nav">
+        </div>
             <div class="menudata">
                 <p><a href="../clientes.php">Clientes</a></p>
                 <p><a href="../categorias.php">Categorias</a></p>

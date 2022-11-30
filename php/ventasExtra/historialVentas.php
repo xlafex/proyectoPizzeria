@@ -13,14 +13,15 @@
 </head>
 <body>
     <header>
-        <nav class="menu">
-            <div class="logo" id="logo">
-                <h1 id="Pitzeria">Pitzeria</h1>
-            </div>
+    <div class="container">
+                
+                <img src="../../imagenes/logo2.png" alt="" width="150" height="75">
+                <ul class="nav">
+        </div>
             <div class="menudata">
                 <p><a href="../clientes.php">Clientes</a></p>
                 <p><a href="../categorias.php">Categorias</a></p>
-                <p><a href="historialModificaciones.php">Historial Productos</a></p>
+                <p><a href="../historialProductos.php">Historial Productos</a></p>
                 <p><a href="../productos.php">Producto</a></p>
                 <p><a href="../index.php">Ventas</a></p>
             </div>
@@ -39,7 +40,7 @@
                 <td>Cliente</td>
                 <td>Venta Total</td>
                 <td>Fecha de Venta</td>
-                <td>Acción</td>
+                <!-- <td>Acción</td> -->
             </tr>
 
             <?php
@@ -69,7 +70,7 @@
                 <td><?php echo $filaClient['Nombre']?><p> </p><?php echo $filaClient['Apellido']?></td>
                 <td><?php echo $PrecioTotal?></td>
                 <td><?php echo $fechaVenta?></td>
-                <td><a href="historialVentas.php?borrar=<?php echo $idVenta;?>">Borrar</a></td>
+                <!-- <td><a href="historialVentas.php?borrar=<?php echo $idVenta;?>">Borrar</a></td> -->
             </tr>
 
             <?php } ?>

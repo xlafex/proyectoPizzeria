@@ -16,13 +16,42 @@ use Sabberworm\CSS\Value\Value;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Ventas</title>
     <link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="menu">
+    <nav class="menu">
+    <nav class="navbar">
+    <div class="container">
+                
+                <img src="../imagenes/logo2.png" alt="" width="150" height="75">
+                <ul class="nav">
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link active" aria-current="page" href="clientes.php">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="categorias.php">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="historialProductos.php">Historial Productos</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="productos.php">Producto</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="index.php">Ventas</a>
+            </li>
+            </ul>
+            </div>
+            </nav>
+    </nav>
+        <!-- <nav class="menu">
             <div class="logo" id="logo">
                 <h1 id="Pitzeria">Pitzeria</h1>
             </div>
@@ -33,25 +62,37 @@ use Sabberworm\CSS\Value\Value;
                 <p><a href="productos.php">Producto</a></p>
                 <p class="btn btn-warning"><a href="">Ventas</a></p>
             </div>
-        </nav>
+        </nav> -->
     </header>
+
+    
     <div class="col-md-8 col-md-offset-2">
-        <h1>Ventas</h1>
+    <br>
+    <label style="font-size:50px;font-family: 'Rubik', sans-serif;" for="">Ventas</label>
+    <br>
+        <!-- <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-outline-primary" href="../ventasExtra/historialVentas.php">Ver Historial de Ventas</button>
+        <button type="button" class="btn btn-outline-primary" href="../ventasExtra/ventasDia.php">Ver Ventas Diarias</button>
+        <button type="button" class="btn btn-outline-primary" href="../ventasExtra/historialVentaDetallada.php">Ver Ventas Detalladas</button>
+        </div> -->
+        
         <div class="historialVentas">
-            <p class="btn btn-warning"><a href="ventasExtra/historialVentas.php">Ver Historial de Ventas</a></p>
+            <p style="font-size:18px;font-family: 'Rubik', sans-serif;" class="btn btn-warning" style="font-color: white;"><a style="text-decoration: none;" href="ventasExtra/historialVentas.php">Ver Historial de Ventas</a></p>
         </div>
         <br/>
         <div class="ventasDelDia">
-            <p class="btn btn-warning"><a href="ventasExtra/ventasDia.php">Ver Ventas Diarias</a></p>
+            <p style="font-size:18px;font-family: 'Rubik', sans-serif;" class="btn btn-warning"><a style="text-decoration: none;" href="ventasExtra/ventasDia.php">Ver Ventas Diarias</a></p>
         </div>
         <br/>
         <div class="ventasDetalladas">
-            <p class="btn btn-warning"><a href="ventasExtra/historialVentaDetallada.php">Ver Ventas Detalladas</a></p>
+            <p style="font-size:18px;font-family: 'Rubik', sans-serif;" class="btn btn-warning"><a style="text-decoration: none;" href="ventasExtra/historialVentaDetallada.php">Ver Ventas Detalladas</a></p>
         </div>
-            <form method="POST" action="ventas.php">
+        
+            <form method="POST" action="index.php">
+                <br>
             <div class="form-group">
-                <label for="">Cliente:</label>
-                <select name="client" id="client" class="form-control">
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Cliente:</label>
+                <select style="font-size:16px;font-family: 'Rubik', sans-serif;" name="client" id="client" class="form-control">
                     <?php
                         while ($clients = sqlsrv_fetch_array(
                                 $all_clients)):;
@@ -64,13 +105,15 @@ use Sabberworm\CSS\Value\Value;
                         // While loop must be terminated
                     ?>
                 </select>
-            </div>    
+            </div>   
+            <br> 
             <div class="form-group">
-                <input type="submit" name="insert_venta" class="btn btn-warning" value="Generar Venta."><br />
+                <input style="font-size:18px;font-family: 'Rubik', sans-serif;" type="submit" name="insert_venta" class="btn btn-warning" value="Generar Venta."><br />
             </div>
+            <br>
             <div class="form-group">
-                <label for="">Producto:</label>
-                <select name="product" id="product" class="form-control">
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Producto:</label>
+                <select style="font-size:16px;font-family: 'Rubik', sans-serif;" name="product" id="product" class="form-control">
                     <?php
                         while ($products = sqlsrv_fetch_array($all_products)):;
                     ?>
@@ -82,22 +125,23 @@ use Sabberworm\CSS\Value\Value;
                     ?>                        
                 </select>                    
             </div>
+            <br>
             <div class="form-group">
-                <label for="">Cantidad:</label>
-                <input type="number" name="cantidad" class="form-control" placeholder=""><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Cantidad:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="number" name="cantidad" class="form-control" placeholder=""><br />
             </div>
             
             <div class="form-group">
-                <input type="submit" name="insert_product_to_order" class="btn btn-warning" value="Insertar Producto a la Orden."><br />
+                <input style="font-size:18px;font-family: 'Rubik', sans-serif;" type="submit" name="insert_product_to_order" class="btn btn-warning" value="Insertar Producto a la Orden."><br />
             </div>
             
             <div class="form-group">
-                <label for="">Carrito:</label>
+                <label style="font-family: 'Rubik', sans-serif;" for=""><h2>Carrito:</h2></label>
             </div>
         </form>
 
     </div>
-<br /><br/> <br/>
+
 
     <?php
 
@@ -118,6 +162,7 @@ use Sabberworm\CSS\Value\Value;
             $ejecutar = sqlsrv_query($conn, $insertar_producto_orden);
 
             if($ejecutar){
+                
                 echo "<script>alert('Producto agregado a la orden.')</script>";
             }
 
@@ -198,14 +243,27 @@ use Sabberworm\CSS\Value\Value;
 
     ?>
     <div class="col-md-8 col-md-offset-2">
-        <table class="table table-bordered table-responsive">
+    <text align="center">
+    <table style="font-size:18px;font-family: 'Rubik', sans-serif;" class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+            <th scope="col">ID_Orden</th>
+            <th scope="col">Nombre del Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acción</th><!-- solo podemos borrar productos de la orden -->
+            </tr>
+            
+        </thead>
+    </text>
+        <!-- <table class="table table-bordered table-responsive">
             <tr>
                 <td>ID_Orden</td>
                 <td>Nombre del Producto</td>
                 <td>Cantidad</td>
                 <td>Precio</td>
-                <td>Acción</td><!-- solo podemos borrar productos de la orden -->
-            </tr>
+                <td>Acción</td>
+            </tr> -->
 
             <?php
                 $consulta = "SELECT * from ORDEN_TEMPORAL";
@@ -229,13 +287,23 @@ use Sabberworm\CSS\Value\Value;
 
             ?>
 
+            <tbody style="font-size:16px;font-family: 'Rubik', sans-serif;">
             <tr align="center">
+            <th scope="row"><?php echo $idOrden?></th>
+            <td><?php echo $nombreProducto['Nombre_Producto']?></td>
+            <td><?php echo $cant?></td>
+            <td><?php echo $PrecioProd?></td>
+            <td><a href="index.php?borrar=<?php echo $idOrden;?>">Borrar</a></td>
+           
+            </tr>
+
+            <!-- <tr align="center">
                 <td><?php echo $idOrden?></td>
                 <td><?php echo $nombreProducto['Nombre_Producto']?></td>
                 <td><?php echo $cant?></td>
                 <td><?php echo $PrecioProd?></td>                        
-                <td><a href="ventas.php?borrar=<?php echo $idOrden;?>">Borrar</a></td>
-            </tr>
+                <td><a href="index.php?borrar=<?php echo $idOrden;?>">Borrar</a></td>
+            </tr> -->
 
             <?php } ?>
 
@@ -252,7 +320,7 @@ use Sabberworm\CSS\Value\Value;
 
             if($ejecutar){
                 echo "<script>alert('Producto eliminado de la orden.')</script>";
-                echo "<script>window.open('ventas.php','_self')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
             }
     
         }

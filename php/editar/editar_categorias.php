@@ -22,12 +22,12 @@
         
         <form method="POST" action="categorias.php">
             <div class="form-group">
-                <label for="">Nombre categoria:</label>
-                <input type="text" name="nombre_cat" class="form-control" value="<?php echo $NombreCat; ?>"><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Nombre categoria:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="nombre_cat" class="form-control" value="<?php echo $NombreCat; ?>"><br />
             </div>
             <div class="form-group">
-                <label for="">Activa:</label>
-                <select name="activa" id="active" class="form-control" >
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Activa:</label>
+                <select style="font-size:16px;font-family: 'Rubik', sans-serif;" name="activa" id="active" class="form-control" >
                     <option value="Y" <?php if($Activ == 'Y'){echo ", selected";} ?>>Si</option>
                     <option value="N" <?php if($Activ == 'N'){echo ", selected";} ?>>No</option>
                 </select>
@@ -35,7 +35,7 @@
             </div>
             
             <div class="form-group">
-                <input type="submit" name="actualizar_cat" class="btn btn-warning" value="Actualizar categoria."><br />
+                <input style="font-size:18px;font-family: 'Rubik', sans-serif;" type="submit" name="actualizar_cat" class="btn btn-warning" value="Actualizar categoria."><br />
             </div>
         </form>
 

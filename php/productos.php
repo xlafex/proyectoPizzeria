@@ -15,42 +15,59 @@ use Sabberworm\CSS\Value\Value;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="menu">
-            <div class="logo" id="logo">
-                <h1 id="Pitzeria">Pitzeria</h1>
+    <nav class="menu">
+    <nav class="navbar">
+            <div class="container">
+                
+                <img src="../imagenes/logo2.png" alt="" width="150" height="75">
+                <ul class="nav">
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link active" aria-current="page" href="clientes.php">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="categorias.php">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="historialProductos.php">Historial Productos</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="productos.php">Producto</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="index.php">Ventas</a>
+            </li>
+            </ul>
             </div>
-            <div class="menudata">
-                <p><a href="clientes.php">Clientes</a></p>
-                <p><a href="categorias.php">Categorias</a></p>
-                <p><a href="historialProductos.php">Historial Productos</a></p>
-                <p><a href="productos.php">Producto</a></p>
-                <p class="btn btn-warning"><a href="index.php">Ventas</a></p>
-            </div>
-        </nav>
+            </nav>
+    </nav>
     </header>
     <div class="col-md-8 col-md-offset-2">
-        <h1>Productos</h1>
+    <label style="font-size:50px;font-family: 'Rubik', sans-serif;" for="">Productos</label>
 
         <form method="POST" action="productos.php">
             <div class="form-group">
-                <label for="">Nombre del Producto:</label>
-                <input type="text" name="nombre_product" class="form-control" placeholder="Escriba el nombre del producto."><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Nombre del Producto:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="nombre_product" class="form-control" placeholder="Escriba el nombre del producto."><br />
             </div>
             <div class="form-group">
-                <label for="">Precio:</label>
-                <input type="text" name="precio_product" class="form-control" placeholder="Escriba el Precio del producto."><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Precio:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="precio_product" class="form-control" placeholder="Escriba el Precio del producto."><br />
             </div>
             <div class="form-group">
-                <label for="">Descripción:</label>
-                <input type="text" name="descripcion_product" class="form-control" placeholder="Escriba la Descripción del producto."><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Descripción:</label>
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="descripcion_product" class="form-control" placeholder="Escriba la Descripción del producto."><br />
             </div>
             <div class="form-group">
-                <label for="">Categoria:</label>
-                <select name="categ" id="categ" class="form-control">
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Categoria:</label>
+                <select style="font-size:16px;font-family: 'Rubik', sans-serif;" name="categ" id="categ" class="form-control">
                     <!-- <option value="Y">Si</option>
                     <option value="N">No</option> -->
                     <?php
@@ -67,9 +84,9 @@ use Sabberworm\CSS\Value\Value;
                     ?>
                 </select>
             </div>
-            
+            <br>
             <div class="form-group">
-                <input type="submit" name="insert_product" class="btn btn-warning" value="Insertar Producto."><br />
+                <input style="font-size:18px;font-family: 'Rubik', sans-serif;" type="submit" name="insert_product" class="btn btn-warning" value="Insertar Producto."><br />
             </div>
         </form>
 
@@ -99,7 +116,24 @@ use Sabberworm\CSS\Value\Value;
 
     ?>
     <div class="col-md-8 col-md-offset-2">
-        <table class="table table-bordered table-responsive">
+
+    <text align="center">
+    <table style="font-size:18px;font-family: 'Rubik', sans-serif;" class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre del Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Activa</th>
+            <th scope="col">Acción</th>
+            <th scope="col">Acción</th>
+            </tr>
+            
+        </thead>
+    </text>
+        <!-- <table class="table table-bordered table-responsive">
             <tr>
                 <td>ID</td>
                 <td>Nombre del Producto</td>
@@ -109,7 +143,7 @@ use Sabberworm\CSS\Value\Value;
                 <td>Activa</td>
                 <td>Acción</td>
                 <td>Acción</td>
-            </tr>
+            </tr> -->
 
             <?php
                 $consulta = "SELECT * from ProductoCompleto1";
@@ -132,7 +166,20 @@ use Sabberworm\CSS\Value\Value;
 
             ?>
 
+
+            <tbody style="font-size:16px;font-family: 'Rubik', sans-serif;">
             <tr align="center">
+            <th scope="row"><?php echo $id?></th>
+            <td><?php echo $NombreProducto?></td>
+            <td><?php echo $PrecioProducto?></td>
+            <td><?php echo $DescProducto?></td>
+            <td><?php echo $NomCateg?></td>
+            <td><?php echo $Active?></td>
+            <td><a href="productos.php?editar=<?php echo $id;?>">Editar</a></td>
+            <td><a href="productos.php?borrar=<?php echo $id;?>">Borrar</a></td>
+            </tr>
+
+            <!-- <tr align="center">
                 <td><?php echo $id?></td>
                 <td><?php echo $NombreProducto?></td>
                 <td><?php echo $PrecioProducto?></td>
@@ -142,7 +189,7 @@ use Sabberworm\CSS\Value\Value;
                 
                 <td><a href="productos.php?editar=<?php echo $id;?>">Editar</a></td>
                 <td><a href="productos.php?borrar=<?php echo $id;?>">Borrar</a></td>
-            </tr>
+            </tr> -->
 
             <?php } ?>
 

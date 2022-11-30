@@ -59,26 +59,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imagenes</title>
     <link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
     <header>
-        <nav class="menu">
-            <div class="logo" id="logo">
-                <h1 id="Pitzeria">Pitzeria</h1>
+    <nav class="menu">
+    <nav class="navbar">
+    <div class="container">
+                
+                <img src="../imagenes/logo2.png" alt="" width="150" height="75">
+                <ul class="nav">
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link active" aria-current="page" href="clientes.php">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="categorias.php">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="historialProductos.php">Historial Productos</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="productos.php">Producto</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="index.php">Ventas</a>
+            </li>
+            </ul>
             </div>
-            <div class="menudata">
-                <p><a href="clientes.php">Clientes</a></p>
-                <p><a href="categorias.php">Categorias</a></p>
-                <p><a href="imagenes.php">Imagenes</a></p>
-                <p><a href="productos.php">Producto</a></p>
-                <p><a href="">Empleados</a></p>
-                <p><a href="ventas.php">Ventas</a></p>
-            </div>
-        </nav>
+            </nav>
+    </nav>
     </header>
     <div class="col-md-8 col-md-offset-2">
-        <h1>Imagenes</h1>
+    <label style="font-size:50px;" for="">Imagenes</label>
 
         <form method="POST" action="imagenes.php" enctype="multipart/form-data" >
             <div class="form-group">

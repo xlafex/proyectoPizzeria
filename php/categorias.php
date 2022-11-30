@@ -10,40 +10,64 @@
     <title>Categorias</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="menu">
-            <div class="logo" id="logo">
-                <h1 id="Pitzeria">Pitzeria</h1>
+    <nav class="menu">
+    <nav class="navbar">
+    <div class="container">
+                
+                <img src="../imagenes/logo2.png" alt="" width="150" height="75">
+                <ul class="nav">
+            <li class="nav-item">
+                <a style="color:black; " class="nav-link active" aria-current="page" href="clientes.php">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="categorias.php">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="historialProductos.php">Historial Productos</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="productos.php">Producto</a>
+            </li>
+            <li class="nav-item">
+                <a style="color:black;" class="nav-link" href="index.php">Ventas</a>
+            </li>
+            </ul>
             </div>
-            <div class="menudata">
-                <p><a href="clientes.php">Clientes</a></p>
-                <p><a href="categorias.php">Categorias</a></p>
-                <p><a href="historialProductos.php">Historial Productos</a></p>
-                <p><a href="productos.php">Producto</a></p>
-                <p class="btn btn-warning"><a href="index.php">Ventas</a></p>
-            </div>
-        </nav>
+            </nav>
+    </nav>
     </header>
-    </header>
+    
     <div class="col-md-8 col-md-offset-2">
-        <h1>Categorias</h1>
+    <label style="font-size:50px;font-family: 'Rubik', sans-serif;" for="">Categorias</label>
 
         <form method="POST" action="categorias.php">
+            
             <div class="form-group">
-                <label for="">Nombre categoria:</label>
-                <input type="text" name="nombre_cat" class="form-control" placeholder="Escriba el nombre de categoria"><br />
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Nombre categoria:</label>
+                
+                <input style="font-size:16px;font-family: 'Rubik', sans-serif;" type="text" name="nombre_cat" class="form-control" placeholder="Escriba el nombre de categoria"><br />
+                
             </div>
             <div class="form-group">
-                <label for="">Activa:</label>
-                <select name="activa" id="active" class="form-control">
+                <label style="font-size:18px;font-family: 'Rubik', sans-serif;" for="">Activa:</label>
+                
+                <select style="font-size:16px;font-family: 'Rubik', sans-serif;" name="activa" id="active" class="form-control">
                     <option value="Y">Si</option>
                     <option value="N">No</option>
                 </select>
+                
             </div>
+            
+            <br>
             <div class="form-group">
-                <input type="submit" name="insert" class="btn btn-warning" value="Insertar categoria."><br />
+                <input style="font-size:18px;font-family: 'Rubik', sans-serif;" type="submit" name="insert" class="btn btn-warning" value="Insertar categoria."><br />
             </div>
         </form>
 
@@ -70,14 +94,27 @@
 
     ?>
     <div class="col-md-8 col-md-offset-2">
-        <table class="table table-bordered table-responsive">
+        <text align="center">
+    <table style="font-size:18px;font-family: 'Rubik', sans-serif;" class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+            <th scope="col">Id_Categoria</th>
+            <th scope="col">Nombre de Categoria</th>
+            <th scope="col">Activa</th>
+            <th scope="col">Acción</th>
+            <th scope="col">Acción</th>
+            </tr>
+            
+        </thead>
+    </text>
+        <!-- <table class="table table-bordered table-responsive">
             <tr>
                 <td>Id_Categoria</td>
                 <td>Nombre de Categoria</td>
                 <td>Activa</td>
                 <td>Acción</td>
                 <td>Acción</td>
-            </tr>
+            </tr> -->
 
             <?php
                 $consulta = "SELECT * from CATEGORIAS";
@@ -96,13 +133,27 @@
 
             ?>
 
+
+            
+            
+            
+            <tbody style="font-size:16px;font-family: 'Rubik', sans-serif;">
             <tr align="center">
+            <th scope="row"><?php echo $id?></th>
+            <td><?php echo $NombreCat?></td>
+            <td><?php echo $Activ?></td>
+            <td><a href="categorias.php?editar=<?php echo $id;?>">Editar</a></td>
+            <td><a href="categorias.php?borrar=<?php echo $id;?>">Borrar</a></td>
+            </tr>
+
+
+            <!-- <tr align="center">
                 <td><?php echo $id?></td>
                 <td><?php echo $NombreCat?></td>
                 <td><?php echo $Activ?></td>
                 <td><a href="categorias.php?editar=<?php echo $id;?>">Editar</a></td>
                 <td><a href="categorias.php?borrar=<?php echo $id;?>">Borrar</a></td>
-            </tr>
+            </tr> -->
 
             <?php } ?>
 
